@@ -28,13 +28,31 @@
 		?>	
 	</table>
 	</form>
+	<script>
+// allocate the function to the window scrolling
+   window.onscroll = fixedTop;
+   
+   var startingY = false;
+
+   function fixedTop() {
+       
+       // First top value recovery
+       if (!startingY) startingY = parseInt(document.getElementById("fixedtop").style.top);
+       
+       // Scroll top value
+       if (window.pageYOffset) {        
+           var yrt = window.pageYOffset;
+       } else if (document.body.scrollTop){ 
+           var yrt = document.body.scrollTop;
+       } else { 
+           var yrt = document.documentElement.scrollTop;
+       }
+       
+       document.getElementById("fixedtop").style.top = (yrt + startingY)+ "px";
+   }
+</script>
 	<br />
-	<h2 style="text-align: center;">
-		<a href="ajoutVisiteur" title="Ajouter un nouveau membre">
-			Ajouter un nouveau membre</a>=
-	</h2>
-	<h2 style="text-align: center;">
-		<a href="creationEtatMembre" title="Générer un état des membres"> Etat
-			des membres</a>
-	</h2>
+	<div id="fixedtop" style="position:absolute; left: 1150px; top: 300px; width: 100px; height: 100px;">
+	<input type="button" name="PDF" value="Exporter en PDF" onclick="window.location.href='PDF'">
+	</div>
 </div>

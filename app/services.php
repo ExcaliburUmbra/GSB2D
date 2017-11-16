@@ -17,7 +17,6 @@ class CouteauSuisse {
 		$_SESSION ['nom'] = $nom;
 		$_SESSION ['prenom'] = $prenom;
 	}
-	
 	/**
 	 * Teste si un quelconque visiteur est connectÃ©
 	 *
@@ -270,9 +269,9 @@ class CouteauSuisse {
 	 *        	$infoV
 	 */
 	function PdfEtatMembre($infoV) {
-		// création d'un objet PDF
+		// crï¿½ation d'un objet PDF
 		$pdf = new PDF ();
-		// variable pour le numéro du visiteur
+		// variable pour le numï¿½ro du visiteur
 		$nb = 0;
 		// on compte le nombre de pages
 		$pdf->AliasNbPages ();
@@ -283,19 +282,19 @@ class CouteauSuisse {
 			$nb ++;
 			// ajout d'une nouvelle page
 			$pdf->AddPage ();
-			// le SetX permet de se positionner sur l'axe des abscisses (de gauche à droite)
+			// le SetX permet de se positionner sur l'axe des abscisses (de gauche ï¿½ droite)
 			$pdf->SetX ( 25 );
-			// on affiche ensuite les valeurs du paramètre en entrée ($infoV)
-			// le multiCell est une méthode qui permet de positionner n'importe quel texte ou l'on souhaite dans le PDF
+			// on affiche ensuite les valeurs du paramï¿½tre en entrï¿½e ($infoV)
+			// le multiCell est une mï¿½thode qui permet de positionner n'importe quel texte ou l'on souhaite dans le PDF
 			// Param 1 : position sur l'axe X
 			// Param 2 : position sur l'axe Y
-			// Param 3 : le texte à afficher
+			// Param 3 : le texte ï¿½ afficher
 			// Param 4 : les conteurs : si on veut des contours comme un tableau en noir etc..
 			// Param 5 : la position du texte dans le PDF(center, right, left)
 			// Param 6 : le remplissage du reste de la cellule.
-			$pdf->MultiCell ( 0, 10, "Visiteur n°" . $nb );
+			$pdf->MultiCell ( 0, 10, "Visiteur nï¿½" . $nb );
 			$pdf->MultiCell ( 0, 20, 'Nom  : ' . $visiteur ['nom'], 0, 'C' );
-			$pdf->MultiCell ( 0, 30, 'Prénom : ' . $visiteur ['prenom'], 0, 'C' );
+			$pdf->MultiCell ( 0, 30, 'Prï¿½nom : ' . $visiteur ['prenom'], 0, 'C' );
 			$pdf->MultiCell ( 0, 40, 'Adresse : ' . $visiteur ['adresse'] . " " . $visiteur ['cp'] . " " . $visiteur ['ville'], 0, 'C' );
 			$pdf->MultiCell ( 0, 50, "Date d'embauche : " . $visiteur ['dateEmbauche'], 0, 'C' );
 		}
